@@ -1,35 +1,69 @@
 let canvas = document.getElementById("grid");
 let r = document.querySelector(':root');
+let currentSize = 25;
+const clearButton = document.querySelector('.clear-button');
+const blackWhiteButton = document.querySelector('.blackWhite-button');
+const rbgButton = document.querySelector('.rbg-button');
+const eraserButton = document.querySelector('.eraser-button');
 
-// Need to call the slider to use as input for createGrid function
 
-// Need to also use the slider's number to change text next to the slider with the # x # canvas size.
+// Call the slider to use as input for generateGrid function
+const sizeSlider = document.getElementById('sizeSlider');
+const sizeValue = document.querySelector('.size-value');
 
-// function that creates the grid canvas
-function setUpGrid(num){
-    num = num*num
+sizeSlider.onmousemove = (e) => updateSizeValue(e.target.value)
+sizeSlider.onchange = (e) => changeSize(e.target.value)
+
+function updateSizeValue(value) {
+    sizeValue.innerHTML = `${value} x ${value}`
+  }
+
+function changeSize(value) {
+    setCurrentSize(value)
+    reloadGrid()
+}
+
+function reloadGrid() {
+    clearCanvas()
+    generateGrid(currentSize)
+  }
+  
+  function setCurrentSize(value) {
+    currentSize = value;
+  }
+
+// Create the grid cells based on input size
+function setUpGrid(currentSize){
+    num = currentSize*currentSize
     
     for(i=0;i<num;i++){
         let cell = document.createElement("div");
         cell.classList.add("cell");
         canvas.appendChild(cell);
     }
-    
 }
 
-// change the css variable responsible for grid size
+// Change the css variable responsible for grid size
 function adjustGridSize(size) {
     r.style.setProperty("--grid-size", size);
 }
 
+// Generate a blank canvas, defaulted to 25 x 25
 function generateGrid(num){
     setUpGrid(num);
     adjustGridSize(num);
 }
 
-// Need to call the slider to use as input for createGrid function
 
-// Need to also use the slider's number to change text next to the slider with the # x # canvas size.
+// Add multiple ways to refresh the canvas
+function clearCanvas(){
+    grid.innerHTML = ""
+}
 
+clearButton.addEventListener('click', () => {
+    window.location.reload();
+});
 
-generateGrid(16);
+window.onload = () => {
+    generateGrid(currentSize);    
+  }

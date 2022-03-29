@@ -6,24 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
     <title>Etch-a-Sketch</title>
 </head>
 <body>
-    <div id="main-content">
-        <h1>Etch-a-Sketch</h1>
-        <div class="slideContainer">
-            <p>Change Canvas Size</p>
-            <p class="size-value"></p>
-            <input type="range" min="1" max="100" value="16" class="slider grid-size" id="myRange">
-          </div>
-        <div id="grid">
-            
+    <div class="container">
+        <div id="header">
+            <h1>Etch-a-Sketch</h1>
+        </div>
+        <div id="main-content">
+            <div class="left-canvas-settings">
+                <div class="slideContainer">
+                    <p>Change Cell Count: </p>
+                    <p class="size-value">25 x 25</p>
+                    <input type="range" min="2" max="50" value="25" id="sizeSlider" class="slider">
+                </div>
+                <button class="clear-button settings-button">Reset Canvas</button>
+            </div>
+            <div id="grid">
+                
+            </div>
+            <div class="right-canvas-settings">
+                <button class="blackWhite-button settings-button">Black & White Mode</button>
+                <button class="RBG-button settings-button">Rainbow Mode</button>
+                <button class="eraser-button settings-button">Eraser</button>
+            </div>
+        </div>
+
+        <div id="footer">
+            <p>Code by kbousquet<a href="https://github.com/kbousquet/etch-a-sketch"> <img src="GitHubIcon.png" alt="Git Hub icon" height="20"></a></p>
         </div>
     </div>
-
-    <div id="footer">
-        <p>Code by kbousquet<a href="https://github.com/kbousquet/etch-a-sketch"> <img src="GitHubIcon.png" alt="Git Hub icon" height="20"></a></p>
-    </div>
-    
 </body>
 </html>
