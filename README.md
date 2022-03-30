@@ -6,6 +6,7 @@ This is my second **JS** project. Click [here](https://kbousquet.github.io/etch-
 * Learned the basics of CSS grid
 * Gained more experience using Flexbox
 * Deepened understanding of DOM manipulation
-* More practice with using HTML, CSS, & JavaScript together.
+* Learned about Event Delegation
+* More practice with using HTML, CSS, & JavaScript together
 
 Fonts provided by [Google Fonts](https://fonts.google.com/specimen/Klee+One).
