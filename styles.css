@@ -71,7 +71,6 @@ body {
 
 :root{
   --grid-size:16;
-  --rainbow-color:;
 }
 
 #grid{
@@ -91,10 +90,6 @@ body {
 
 .black-color{
   background-color: black
-}
-
-.rainbow-color{
-  background-color: var(--rainbow-colorolor);
 }
 
 #footer{

@@ -1,7 +1,6 @@
 let canvas = document.getElementById("grid");
 let r = document.querySelector(':root');
 let currentSize = 25;
-let rainbowColor = '#'+Math.floor(Math.random()*16777215).toString(16);
 const clearButton = document.querySelector('.clear-button');
 const blackWhiteButton = document.querySelector('.blackWhite-button');
 const rbgButton = document.querySelector('.RBG-button');
@@ -40,39 +39,9 @@ function setUpGrid(currentSize){
         let cell = document.createElement("div");
         cell.classList.add("cell");
         canvas.appendChild(cell);
-        
-
-        blackWhiteButton.addEventListener('click', () => {
-            cell.addEventListener('mouseover', 
-                e => e.target.classList.add('black-color'));
-        });
-
-        blackWhiteButton.addEventListener('click', () => {
-            cell.addEventListener('mouseover', 
-                e => e.target.classList.remove('rainbow-color'));
-        });
-
-        /*rbgButton.addEventListener('click', () => {
-            cell.addEventListener('mouseover', 
-                r.style.setProperty("--rainbow-color", rainbowColor));
-        });
-
-        rbgButton.addEventListener('click', () => {
-            cell.addEventListener('mouseover', 
-                e => e.target.classList.remove('black-color'));
-        });
-        */
-        eraserButton.addEventListener('click', () => {
-            cell.addEventListener('mouseover', 
-                e => e.target.classList.remove('black-color','rainbow-color'));
-        }); 
-    }
-    
-    
+     }
+   
 }
-
-
-
 
 // Change the css variable responsible for grid size
 function adjustGridSize(size) {
@@ -86,6 +55,35 @@ function generateGrid(num){
 }
 
 
+blackWhiteButton.addEventListener('click', function(){
+    let val = document.getElementById('sizeSlider').value;
+    let cell = grid.children;
+    for (let i = 0; i < val*val; i++) {
+        cell[i].addEventListener('mouseover', function(event){
+            event.target.style.backgroundColor = 'black';
+        })
+    }
+});
+
+rbgButton.addEventListener('click', function(){
+    let val = document.getElementById('sizeSlider').value;
+    let cell = grid.children;
+    for (let i = 0; i < val*val; i++) {
+        cell[i].addEventListener('mouseover', function(event){
+            event.target.style.backgroundColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+        })
+    }
+});
+
+eraserButton.addEventListener('click', function(){
+    let val = document.getElementById('sizeSlider').value;
+    let cell = grid.children;
+    for (let i = 0; i < val*val; i++) {
+        cell[i].addEventListener('mouseover', function(event){
+            event.target.style.backgroundColor = 'white';
+        })
+    }
+});
 
 clearButton.addEventListener('click', () => {
     reloadGrid();
