@@ -9,4 +9,6 @@ This is my second **JS** project. Click [here](https://kbousquet.github.io/etch-
 * Learned about Event Delegation
 * More practice with using HTML, CSS, & JavaScript together
 
+![image](https://github.com/kbousquet/etch-a-sketch/assets/72675497/ac24a679-0012-40be-920f-fd4ced359007)
+
 Fonts provided by [Google Fonts](https://fonts.google.com/specimen/Klee+One).
